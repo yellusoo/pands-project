@@ -3,36 +3,32 @@ import pandas as pd
 import matplotlib.pyplot as mpl
 import csv
 
-data = []
+# data = []
 
 with open("Iris-dataset.csv") as f:
-    f.read
+   f.read
 filename = "Irises Summary.txt"
 
-#Drawn from https://stackoverflow.com/questions/33889310/r-summary-equivalent-in-numpy
+#Drawn from https://www.geeksforgeeks.org/python-read-csv-columns-into-list/
 
-data = pd.read_csv("Iris-dataset.csv", sep= ",")
-data.head()
+data = pd.read_csv("Iris-dataset.csv")
 
-species = [[i][0][0] for i in data]
-
-print(data)
+sepal_length = data['sepal_length'].tolist()
+sepal_width = data['sepal_width'].tolist()
+petal_length = data['petal_length'].tolist()
+petal_length = data["petal_length"].tolist()
 
 summary = data.describe()
-
-
 
 
 with open(filename, "wt") as f:
     f.write("Iris Flowers Summary")
     f.write(str(print(summary.head())))
 
-#The first block defines the historgram and defines the legend, and colors the histogram blue
 
-x = "sepal width"
-y = "sepal_length"
 
-print(x)
+x = np.array(sepal_width)
+y = np.array(sepal_length)
 
 scatter = mpl.scatter(x,y)
-# mpl.show()
+mpl.show()
