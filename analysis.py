@@ -19,6 +19,9 @@ petal_length = data['petal_length'].tolist()
 petal_width = data["petal_width"].tolist()
 
 sepal_len_hist = mpl.hist(sepal_length)
+mpl.xlabel("Length")
+mpl.ylabel("Occurences")
+
 mpl.savefig("sepal_len_hist.png", dpi=100)
 sepal_width_hist = mpl.hist(sepal_width)
 mpl.savefig("sepal_width_hist.png", dpi=100)
@@ -48,5 +51,4 @@ mpl.show()
 with open("Iris Summary Information.txt", "w+") as f:
     f.write(str(print(sepal_length)))
     f.write(str(print(data.describe)))   
-    
     
