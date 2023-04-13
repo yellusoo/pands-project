@@ -8,6 +8,7 @@ import csv
 # Drawn from https://www.w3schools.com/python/pandas/pandas_csv.asp
 
 data = pd.read_csv("Iris-dataset.csv")
+dataralue = data.round(decimals=2)
 
 # Code taken from https://www.geeksforgeeks.org/python-read-csv-columns-into-list/ and https://stackoverflow.com/questions/9012487/matplotlib-pyplot-savefig-outputs-blank-image
 
@@ -92,8 +93,7 @@ petal_length_mean = np.mean(petal_length)
 petal_width_mean = np.mean (petal_width)
 
 means = sepal_length_mean, sepal_width_mean, petal_length_mean, petal_width_mean
-print(means)
+summary = data.describe()
 
 with open("Iris Summary Information.txt", "w+") as f:
-    f.write(str("Average Sepal Length, Sepal Width, Petal Length and Petal Width are (in mm)"))
-    f.write(str(means))
+    f.write(str(summary))
